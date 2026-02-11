@@ -33,3 +33,21 @@ build/
 .vscode/
 
 
+# Maven
+target/
+
+# Logs
+*.log
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+
+# Environment
+.env
+
+# Application secrets (if needed)
+application-local.properties

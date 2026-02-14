@@ -1,5 +1,6 @@
 package com.qrattendance.attendance.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfiguration;
@@ -11,16 +12,14 @@ import java.util.List;
 @Configuration
 public class CorsConfig {
 
+    @Value("${frontend_url}")
+    private String frontendurl;
+
     @Bean
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
 
-        // ✅ Allow your frontend domain (VERY IMPORTANT)
-        config.setAllowedOriginPatterns(List.of(
-                "https://qr-attendance-frontend.vercel.app",
-                "http://localhost:5173"
-        ));
-
+        config.setAllowedOriginPatterns(List.of(frontendurl,"http://localhost:5173"));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);

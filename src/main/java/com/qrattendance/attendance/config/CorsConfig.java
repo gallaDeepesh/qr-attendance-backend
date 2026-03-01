@@ -7,6 +7,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
+import java.sql.ClientInfoStatus;
 import java.util.List;
 
 @Configuration
@@ -19,7 +20,7 @@ public class CorsConfig {
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
 
-        config.setAllowedOriginPatterns(List.of(frontendurl,"http://localhost:5173", "https://your-vercel-app.vercel.app"));
+        config.setAllowedOriginPatterns(List.of(frontendurl,"http://localhost:5173", "https://qr-attendance-eta.vercel.app"));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
